@@ -26,6 +26,7 @@
 		9CBBE3FF1C0239DA00ECCD54 /* InvaderC_01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBBE3EC1C0239DA00ECCD54 /* InvaderC_01@2x.png */; };
 		9CBBE4001C0239DA00ECCD54 /* Ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBBE3ED1C0239DA00ECCD54 /* Ship.png */; };
 		9CBBE4011C0239DA00ECCD54 /* Ship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBBE3EE1C0239DA00ECCD54 /* Ship@2x.png */; };
+		9CBBE4031C028B7C00ECCD54 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBE4021C028B7C00ECCD54 /* GameOverScene.swift */; };
 		CED522001C0224F6008E3E3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED521FF1C0224F6008E3E3F /* AppDelegate.swift */; };
 		CED522021C0224F6008E3E3F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CED522011C0224F6008E3E3F /* GameScene.sks */; };
 		CED522041C0224F6008E3E3F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED522031C0224F6008E3E3F /* GameScene.swift */; };
@@ -55,6 +56,7 @@
 		9CBBE3EC1C0239DA00ECCD54 /* InvaderC_01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InvaderC_01@2x.png"; sourceTree = "<group>"; };
 		9CBBE3ED1C0239DA00ECCD54 /* Ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship.png; sourceTree = "<group>"; };
 		9CBBE3EE1C0239DA00ECCD54 /* Ship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship@2x.png"; sourceTree = "<group>"; };
+		9CBBE4021C028B7C00ECCD54 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		CED521FC1C0224F6008E3E3F /* SpaceInvaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceInvaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED521FF1C0224F6008E3E3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED522011C0224F6008E3E3F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				CED521FF1C0224F6008E3E3F /* AppDelegate.swift */,
 				CED522011C0224F6008E3E3F /* GameScene.sks */,
 				CED522031C0224F6008E3E3F /* GameScene.swift */,
+				9CBBE4021C028B7C00ECCD54 /* GameOverScene.swift */,
 				CED522051C0224F6008E3E3F /* GameViewController.swift */,
 				CED522071C0224F6008E3E3F /* Game.xcassets */,
 				CED522091C0224F6008E3E3F /* Main.storyboard */,
@@ -186,7 +189,7 @@
 				TargetAttributes = {
 					CED521FB1C0224F6008E3E3F = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 2HH9PF63UY;
+						DevelopmentTeam = BU3R4YBAT8;
 					};
 				};
 			};
@@ -245,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBBE4031C028B7C00ECCD54 /* GameOverScene.swift in Sources */,
 				9CBBE3DB1C02332E00ECCD54 /* XCGLogger.swift in Sources */,
 				CED522041C0224F6008E3E3F /* GameScene.swift in Sources */,
 				CED522061C0224F6008E3E3F /* GameViewController.swift in Sources */,
@@ -353,10 +357,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpaceInvaders/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ddg.SpaceInvaders;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -366,10 +372,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpaceInvaders/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ddg.SpaceInvaders;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

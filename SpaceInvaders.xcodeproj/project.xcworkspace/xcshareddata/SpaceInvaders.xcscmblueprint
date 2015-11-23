@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0A593616B04C8FFCE2E2A9AC6383B74849B1A907",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CD1557C3AE966BEDF3490D85F9712687801B146C" : 0,
+    "0A593616B04C8FFCE2E2A9AC6383B74849B1A907" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B60D2FB8-DE09-4E09-B870-06A5089092FB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CD1557C3AE966BEDF3490D85F9712687801B146C" : "..\/XCGLogger\/XCGLogger",
+    "0A593616B04C8FFCE2E2A9AC6383B74849B1A907" : "SpaceInvaders\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SpaceInvaders",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SpaceInvaders.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/adonoho\/SpaceInvaders.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0A593616B04C8FFCE2E2A9AC6383B74849B1A907"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/DaveWoodCom\/XCGLogger.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CD1557C3AE966BEDF3490D85F9712687801B146C"
+    }
+  ]
+}
