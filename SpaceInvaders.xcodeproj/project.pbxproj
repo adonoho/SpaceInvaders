@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0F435F1C0289D200705510 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7D0F435E1C0289D200705510 /* GameOverScene.sks */; };
+		7D0F43611C0289E400705510 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F43601C0289E400705510 /* GameOverScene.swift */; };
 		CE6F64561C023028000E7B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64541C023028000E7B67 /* Assets.xcassets */; };
 		CE6F646E1C0230E6000E7B67 /* AssetLicensingNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64591C0230E6000E7B67 /* AssetLicensingNotes.txt */; };
 		CE6F646F1C0230E6000E7B67 /* InvaderBullet.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE6F645B1C0230E6000E7B67 /* InvaderBullet.wav */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D0F435E1C0289D200705510 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
+		7D0F43601C0289E400705510 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		CE6F64541C023028000E7B67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE6F64591C0230E6000E7B67 /* AssetLicensingNotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AssetLicensingNotes.txt; sourceTree = "<group>"; };
 		CE6F645B1C0230E6000E7B67 /* InvaderBullet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = InvaderBullet.wav; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				CED521FF1C0224F6008E3E3F /* AppDelegate.swift */,
 				CED522011C0224F6008E3E3F /* GameScene.sks */,
 				CED522031C0224F6008E3E3F /* GameScene.swift */,
+				7D0F435E1C0289D200705510 /* GameOverScene.sks */,
+				7D0F43601C0289E400705510 /* GameOverScene.swift */,
 				CED522051C0224F6008E3E3F /* GameViewController.swift */,
 				CED522071C0224F6008E3E3F /* Game.xcassets */,
 				CE6F64581C0230E6000E7B67 /* SIAssets */,
@@ -226,6 +232,7 @@
 				CE6F647C1C0230E6000E7B67 /* InvaderC_00@2x.png in Resources */,
 				CED5220B1C0224F6008E3E3F /* Main.storyboard in Resources */,
 				CE6F64721C0230E6000E7B67 /* ShipHit.wav in Resources */,
+				7D0F435F1C0289D200705510 /* GameOverScene.sks in Resources */,
 				CED522021C0224F6008E3E3F /* GameScene.sks in Resources */,
 				CE6F64701C0230E6000E7B67 /* InvaderHit.wav in Resources */,
 				CED522081C0224F6008E3E3F /* Game.xcassets in Resources */,
@@ -255,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D0F43611C0289E400705510 /* GameOverScene.swift in Sources */,
 				CE6F648F1C0232E0000E7B67 /* XCGLogger.swift in Sources */,
 				CED522041C0224F6008E3E3F /* GameScene.swift in Sources */,
 				CED522061C0224F6008E3E3F /* GameViewController.swift in Sources */,

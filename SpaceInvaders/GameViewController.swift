@@ -10,6 +10,63 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+    
+    var gameScene: GameScene?
+    
+    func configureGestureRecognizers() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "selectTarget:")
+        
+        let swipeRightRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeRightTarget:")
+        swipeRightRecognizer.direction = .Right
+        
+        let swipeLeftRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeLeftTarget:")
+        swipeLeftRecognizer.direction = .Left
+
+        view.addGestureRecognizer(tapRecognizer)
+        view.addGestureRecognizer(swipeLeftRecognizer)
+        view.addGestureRecognizer(swipeRightRecognizer)
+
+    }
+    
+    func selectTarget( recognizer: UITapGestureRecognizer ) {
+        log.debug("")
+        
+        let skView = self.view as! SKView
+
+        if skView.scene == gameScene {
+            gameScene?.fireMissle()
+        } else {
+            if let gameOverScene = skView.scene as? GameOverScene {
+                gameOverScene.loadGameScene()
+                if let scene = GameScene(fileNamed: "GameScene") {
+                    // Configure the view.
+                    let skView = self.view as! SKView
+                    
+                    /* Sprite Kit applies additional optimizations to improve rendering performance */
+                    skView.ignoresSiblingOrder = true
+                    
+                    /* Set the scale mode to scale to fit the window */
+                    scene.scaleMode = .ResizeFill
+                    
+                    skView.presentScene(scene)
+                    
+                    gameScene = scene
+                    
+                    configureGestureRecognizers()
+                }
+            } 
+        }
+    }
+    
+    func swipeRightTarget( recognizer: UISwipeGestureRecognizer ) {
+        log.debug("")
+        gameScene?.moveRight()
+    }
+    
+    func swipeLeftTarget( recognizer: UISwipeGestureRecognizer ) {
+        log.debug("")
+        gameScene?.moveLeft()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,8 +74,6 @@ class GameViewController: UIViewController {
         if let scene = GameScene(fileNamed: "GameScene") {
             // Configure the view.
             let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
@@ -27,6 +82,10 @@ class GameViewController: UIViewController {
             scene.scaleMode = .ResizeFill
             
             skView.presentScene(scene)
+            
+            gameScene = scene
+            
+            configureGestureRecognizers()
         }
     }
 
