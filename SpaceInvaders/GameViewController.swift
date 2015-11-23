@@ -11,6 +11,44 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
+    var gameScene: GameScene?
+
+    func configureGestureRecognizers() {
+
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "selectTarget:")
+
+        let swipeRightRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeRightTarget:")
+        swipeRightRecognizer.direction = .Right
+
+        let swipeLeftRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeLeftTarget:")
+        swipeLeftRecognizer.direction = .Left
+
+        view.addGestureRecognizer(tapRecognizer)
+        view.addGestureRecognizer(swipeRightRecognizer)
+        view.addGestureRecognizer(swipeLeftRecognizer)
+    }
+
+    func selectTarget(recognizer: UITapGestureRecognizer) {
+
+        log.debug("")
+
+        gameScene?.fireMissle()
+    }
+    
+    func swipeRightTarget(recognizer: UISwipeGestureRecognizer) {
+
+        log.debug("")
+
+        gameScene?.moveRight()
+    }
+
+    func swipeLeftTarget(recognizer: UISwipeGestureRecognizer) {
+
+        log.debug("")
+
+        gameScene?.moveLeft()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +65,9 @@ class GameViewController: UIViewController {
             scene.scaleMode = .ResizeFill
             
             skView.presentScene(scene)
+
+            gameScene = scene
+            configureGestureRecognizers()
         }
     }
 
