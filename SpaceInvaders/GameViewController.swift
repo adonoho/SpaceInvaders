@@ -9,24 +9,49 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+protocol EndSceneDelegate: class {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func endScene(scene: SKScene)
+}
 
-        if let scene = GameScene(fileNamed: "GameScene") {
-            // Configure the view.
-            let skView = self.view as! SKView
+class GameViewController: UIViewController, EndSceneDelegate {
+
+    var gameScene: GameScene?
+    var gameOverScene: GameOverScene?
+
+    func gameSceneWithFileNamed(fileNamed: String) -> GameScene? {
+
+        if let scene = GameScene(fileNamed: "GameScene"), skView = view as? SKView {
+
+            let size = CGSize(
+                width:  skView.bounds.size.width  / 2 - 2 * kInsetWidth,
+                height: skView.bounds.size.height / 2
+            )
+            scene.size = size
+            scene.scaleMode = .AspectFit
+            scene.endSceneDelegate = self
+
             skView.showsFPS = true
             skView.showsNodeCount = true
-            
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
-            
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
-            
+
             skView.presentScene(scene)
+
+            return scene
+        }
+        return nil
+    }
+
+    override func viewDidLoad() {
+
+        super.viewDidLoad()
+    }
+
+    override func viewWillLayoutSubviews() {
+
+        if nil == gameScene {
+
+            gameScene = gameSceneWithFileNamed("GameScene")
         }
     }
 
@@ -34,4 +59,24 @@ class GameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
+
+    // MARK: - EndSceneDelegate methods.
+
+    func endScene(scene: SKScene) {
+
+        if gameScene == scene, let size = gameScene?.size, skView = view as? SKView {
+
+            gameOverScene = GameOverScene(size: size)
+            gameOverScene?.endSceneDelegate = self
+
+            skView.presentScene(gameOverScene!,
+                transition: SKTransition.doorsOpenHorizontalWithDuration(1.0))
+        }
+        else if gameOverScene == scene, let gameScene = gameScene, skView = view as? SKView {
+
+            skView.presentScene(gameScene,
+                transition: SKTransition.doorsCloseHorizontalWithDuration(1.0))
+        }
+
+    } // endScene(_:)
 }

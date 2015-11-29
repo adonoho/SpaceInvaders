@@ -7,16 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE6F64561C023028000E7B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64541C023028000E7B67 /* Assets.xcassets */; };
+		CE6F646E1C0230E6000E7B67 /* AssetLicensingNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64591C0230E6000E7B67 /* AssetLicensingNotes.txt */; };
+		CE6F646F1C0230E6000E7B67 /* InvaderBullet.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE6F645B1C0230E6000E7B67 /* InvaderBullet.wav */; };
+		CE6F64701C0230E6000E7B67 /* InvaderHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE6F645C1C0230E6000E7B67 /* InvaderHit.wav */; };
+		CE6F64711C0230E6000E7B67 /* ShipBullet.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE6F645D1C0230E6000E7B67 /* ShipBullet.wav */; };
+		CE6F64721C0230E6000E7B67 /* ShipHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE6F645E1C0230E6000E7B67 /* ShipHit.wav */; };
+		CE6F64731C0230E6000E7B67 /* InvaderA_00.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64601C0230E6000E7B67 /* InvaderA_00.png */; };
+		CE6F64741C0230E6000E7B67 /* InvaderA_00@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64611C0230E6000E7B67 /* InvaderA_00@2x.png */; };
+		CE6F64751C0230E6000E7B67 /* InvaderA_01.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64621C0230E6000E7B67 /* InvaderA_01.png */; };
+		CE6F64761C0230E6000E7B67 /* InvaderA_01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64631C0230E6000E7B67 /* InvaderA_01@2x.png */; };
+		CE6F64771C0230E6000E7B67 /* InvaderB_00.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64641C0230E6000E7B67 /* InvaderB_00.png */; };
+		CE6F64781C0230E6000E7B67 /* InvaderB_00@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64651C0230E6000E7B67 /* InvaderB_00@2x.png */; };
+		CE6F64791C0230E6000E7B67 /* InvaderB_01.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64661C0230E6000E7B67 /* InvaderB_01.png */; };
+		CE6F647A1C0230E6000E7B67 /* InvaderB_01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64671C0230E6000E7B67 /* InvaderB_01@2x.png */; };
+		CE6F647B1C0230E6000E7B67 /* InvaderC_00.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64681C0230E6000E7B67 /* InvaderC_00.png */; };
+		CE6F647C1C0230E6000E7B67 /* InvaderC_00@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F64691C0230E6000E7B67 /* InvaderC_00@2x.png */; };
+		CE6F647D1C0230E6000E7B67 /* InvaderC_01.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F646A1C0230E6000E7B67 /* InvaderC_01.png */; };
+		CE6F647E1C0230E6000E7B67 /* InvaderC_01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F646B1C0230E6000E7B67 /* InvaderC_01@2x.png */; };
+		CE6F647F1C0230E6000E7B67 /* Ship.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F646C1C0230E6000E7B67 /* Ship.png */; };
+		CE6F64801C0230E6000E7B67 /* Ship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F646D1C0230E6000E7B67 /* Ship@2x.png */; };
+		CE6F648F1C0232E0000E7B67 /* XCGLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F648B1C0232E0000E7B67 /* XCGLogger.swift */; };
+		CEC6FEE61C03C73F002226AA /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6FEE51C03C73F002226AA /* GameOverScene.swift */; };
 		CED522001C0224F6008E3E3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED521FF1C0224F6008E3E3F /* AppDelegate.swift */; };
 		CED522021C0224F6008E3E3F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CED522011C0224F6008E3E3F /* GameScene.sks */; };
 		CED522041C0224F6008E3E3F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED522031C0224F6008E3E3F /* GameScene.swift */; };
 		CED522061C0224F6008E3E3F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED522051C0224F6008E3E3F /* GameViewController.swift */; };
 		CED522081C0224F6008E3E3F /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED522071C0224F6008E3E3F /* Game.xcassets */; };
 		CED5220B1C0224F6008E3E3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED522091C0224F6008E3E3F /* Main.storyboard */; };
-		CED5220D1C0224F6008E3E3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED5220C1C0224F6008E3E3F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE6F64541C023028000E7B67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE6F64591C0230E6000E7B67 /* AssetLicensingNotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AssetLicensingNotes.txt; sourceTree = "<group>"; };
+		CE6F645B1C0230E6000E7B67 /* InvaderBullet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = InvaderBullet.wav; sourceTree = "<group>"; };
+		CE6F645C1C0230E6000E7B67 /* InvaderHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = InvaderHit.wav; sourceTree = "<group>"; };
+		CE6F645D1C0230E6000E7B67 /* ShipBullet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ShipBullet.wav; sourceTree = "<group>"; };
+		CE6F645E1C0230E6000E7B67 /* ShipHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ShipHit.wav; sourceTree = "<group>"; };
+		CE6F64601C0230E6000E7B67 /* InvaderA_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InvaderA_00.png; sourceTree = "<group>"; };
+		CE6F64611C0230E6000E7B67 /* InvaderA_00@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InvaderA_00@2x.png"; sourceTree = "<group>"; };
+		CE6F64621C0230E6000E7B67 /* InvaderA_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InvaderA_01.png; sourceTree = "<group>"; };
+		CE6F64631C0230E6000E7B67 /* InvaderA_01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InvaderA_01@2x.png"; sourceTree = "<group>"; };
+		CE6F64641C0230E6000E7B67 /* InvaderB_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InvaderB_00.png; sourceTree = "<group>"; };
+		CE6F64651C0230E6000E7B67 /* InvaderB_00@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InvaderB_00@2x.png"; sourceTree = "<group>"; };
+		CE6F64661C0230E6000E7B67 /* InvaderB_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InvaderB_01.png; sourceTree = "<group>"; };
+		CE6F64671C0230E6000E7B67 /* InvaderB_01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InvaderB_01@2x.png"; sourceTree = "<group>"; };
+		CE6F64681C0230E6000E7B67 /* InvaderC_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InvaderC_00.png; sourceTree = "<group>"; };
+		CE6F64691C0230E6000E7B67 /* InvaderC_00@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InvaderC_00@2x.png"; sourceTree = "<group>"; };
+		CE6F646A1C0230E6000E7B67 /* InvaderC_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InvaderC_01.png; sourceTree = "<group>"; };
+		CE6F646B1C0230E6000E7B67 /* InvaderC_01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InvaderC_01@2x.png"; sourceTree = "<group>"; };
+		CE6F646C1C0230E6000E7B67 /* Ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship.png; sourceTree = "<group>"; };
+		CE6F646D1C0230E6000E7B67 /* Ship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship@2x.png"; sourceTree = "<group>"; };
+		CE6F648B1C0232E0000E7B67 /* XCGLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCGLogger.swift; sourceTree = "<group>"; };
+		CEC6FEE51C03C73F002226AA /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		CED521FC1C0224F6008E3E3F /* SpaceInvaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceInvaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED521FF1C0224F6008E3E3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED522011C0224F6008E3E3F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -24,7 +67,6 @@
 		CED522051C0224F6008E3E3F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		CED522071C0224F6008E3E3F /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
 		CED5220A1C0224F6008E3E3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CED5220C1C0224F6008E3E3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CED5220E1C0224F6008E3E3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,10 +81,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE6F64581C0230E6000E7B67 /* SIAssets */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F64591C0230E6000E7B67 /* AssetLicensingNotes.txt */,
+				CE6F645A1C0230E6000E7B67 /* Sound Effects */,
+				CE6F645F1C0230E6000E7B67 /* Sprite Images */,
+			);
+			path = SIAssets;
+			sourceTree = "<group>";
+		};
+		CE6F645A1C0230E6000E7B67 /* Sound Effects */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F645B1C0230E6000E7B67 /* InvaderBullet.wav */,
+				CE6F645C1C0230E6000E7B67 /* InvaderHit.wav */,
+				CE6F645D1C0230E6000E7B67 /* ShipBullet.wav */,
+				CE6F645E1C0230E6000E7B67 /* ShipHit.wav */,
+			);
+			path = "Sound Effects";
+			sourceTree = "<group>";
+		};
+		CE6F645F1C0230E6000E7B67 /* Sprite Images */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F64601C0230E6000E7B67 /* InvaderA_00.png */,
+				CE6F64611C0230E6000E7B67 /* InvaderA_00@2x.png */,
+				CE6F64621C0230E6000E7B67 /* InvaderA_01.png */,
+				CE6F64631C0230E6000E7B67 /* InvaderA_01@2x.png */,
+				CE6F64641C0230E6000E7B67 /* InvaderB_00.png */,
+				CE6F64651C0230E6000E7B67 /* InvaderB_00@2x.png */,
+				CE6F64661C0230E6000E7B67 /* InvaderB_01.png */,
+				CE6F64671C0230E6000E7B67 /* InvaderB_01@2x.png */,
+				CE6F64681C0230E6000E7B67 /* InvaderC_00.png */,
+				CE6F64691C0230E6000E7B67 /* InvaderC_00@2x.png */,
+				CE6F646A1C0230E6000E7B67 /* InvaderC_01.png */,
+				CE6F646B1C0230E6000E7B67 /* InvaderC_01@2x.png */,
+				CE6F646C1C0230E6000E7B67 /* Ship.png */,
+				CE6F646D1C0230E6000E7B67 /* Ship@2x.png */,
+			);
+			path = "Sprite Images";
+			sourceTree = "<group>";
+		};
+		CE6F64811C0232E0000E7B67 /* XCGLogger */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F648B1C0232E0000E7B67 /* XCGLogger.swift */,
+			);
+			name = XCGLogger;
+			path = ../XCGLogger/XCGLogger/Library/XCGLogger;
+			sourceTree = "<group>";
+		};
 		CED521F31C0224F6008E3E3F = {
 			isa = PBXGroup;
 			children = (
 				CED521FE1C0224F6008E3E3F /* SpaceInvaders */,
+				CE6F64811C0232E0000E7B67 /* XCGLogger */,
 				CED521FD1C0224F6008E3E3F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,13 +152,15 @@
 		CED521FE1C0224F6008E3E3F /* SpaceInvaders */ = {
 			isa = PBXGroup;
 			children = (
+				CE6F64541C023028000E7B67 /* Assets.xcassets */,
 				CED521FF1C0224F6008E3E3F /* AppDelegate.swift */,
 				CED522011C0224F6008E3E3F /* GameScene.sks */,
 				CED522031C0224F6008E3E3F /* GameScene.swift */,
+				CEC6FEE51C03C73F002226AA /* GameOverScene.swift */,
 				CED522051C0224F6008E3E3F /* GameViewController.swift */,
 				CED522071C0224F6008E3E3F /* Game.xcassets */,
+				CE6F64581C0230E6000E7B67 /* SIAssets */,
 				CED522091C0224F6008E3E3F /* Main.storyboard */,
-				CED5220C1C0224F6008E3E3F /* Assets.xcassets */,
 				CED5220E1C0224F6008E3E3F /* Info.plist */,
 			);
 			path = SpaceInvaders;
@@ -129,10 +225,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6F64771C0230E6000E7B67 /* InvaderB_00.png in Resources */,
+				CE6F647C1C0230E6000E7B67 /* InvaderC_00@2x.png in Resources */,
 				CED5220B1C0224F6008E3E3F /* Main.storyboard in Resources */,
+				CE6F64721C0230E6000E7B67 /* ShipHit.wav in Resources */,
 				CED522021C0224F6008E3E3F /* GameScene.sks in Resources */,
-				CED5220D1C0224F6008E3E3F /* Assets.xcassets in Resources */,
+				CE6F64701C0230E6000E7B67 /* InvaderHit.wav in Resources */,
 				CED522081C0224F6008E3E3F /* Game.xcassets in Resources */,
+				CE6F646E1C0230E6000E7B67 /* AssetLicensingNotes.txt in Resources */,
+				CE6F64781C0230E6000E7B67 /* InvaderB_00@2x.png in Resources */,
+				CE6F64761C0230E6000E7B67 /* InvaderA_01@2x.png in Resources */,
+				CE6F646F1C0230E6000E7B67 /* InvaderBullet.wav in Resources */,
+				CE6F64711C0230E6000E7B67 /* ShipBullet.wav in Resources */,
+				CE6F64751C0230E6000E7B67 /* InvaderA_01.png in Resources */,
+				CE6F647E1C0230E6000E7B67 /* InvaderC_01@2x.png in Resources */,
+				CE6F64561C023028000E7B67 /* Assets.xcassets in Resources */,
+				CE6F647D1C0230E6000E7B67 /* InvaderC_01.png in Resources */,
+				CE6F647B1C0230E6000E7B67 /* InvaderC_00.png in Resources */,
+				CE6F64801C0230E6000E7B67 /* Ship@2x.png in Resources */,
+				CE6F647A1C0230E6000E7B67 /* InvaderB_01@2x.png in Resources */,
+				CE6F64791C0230E6000E7B67 /* InvaderB_01.png in Resources */,
+				CE6F64731C0230E6000E7B67 /* InvaderA_00.png in Resources */,
+				CE6F64741C0230E6000E7B67 /* InvaderA_00@2x.png in Resources */,
+				CE6F647F1C0230E6000E7B67 /* Ship.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC6FEE61C03C73F002226AA /* GameOverScene.swift in Sources */,
+				CE6F648F1C0232E0000E7B67 /* XCGLogger.swift in Sources */,
 				CED522041C0224F6008E3E3F /* GameScene.swift in Sources */,
 				CED522061C0224F6008E3E3F /* GameViewController.swift in Sources */,
 				CED522001C0224F6008E3E3F /* AppDelegate.swift in Sources */,
@@ -289,6 +406,7 @@
 				CED522131C0224F6008E3E3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
