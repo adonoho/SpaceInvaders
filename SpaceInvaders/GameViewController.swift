@@ -9,58 +9,15 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController, GameSceneDelegate {
+protocol EndSceneDelegate: class {
+
+    func endScene(scene: SKScene)
+}
+
+class GameViewController: UIViewController, EndSceneDelegate {
 
     var gameScene: GameScene?
     var gameOverScene: GameOverScene?
-    var gameRecognizers: [UIGestureRecognizer] = []
-
-    func configureGameRecognizers() {
-
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: "selectTarget:")
-
-        let swipeRightRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeRightTarget:")
-        swipeRightRecognizer.direction = .Right
-
-        let swipeLeftRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeLeftTarget:")
-        swipeLeftRecognizer.direction = .Left
-
-        view.addGestureRecognizer(tapRecognizer)
-        view.addGestureRecognizer(swipeRightRecognizer)
-        view.addGestureRecognizer(swipeLeftRecognizer)
-
-        gameRecognizers = [tapRecognizer, swipeRightRecognizer, swipeLeftRecognizer]
-    }
-
-    func removeGameRecognizers() {
-
-        for recognizer in gameRecognizers {
-
-            recognizer.view?.removeGestureRecognizer(recognizer)
-        }
-        gameRecognizers = []
-    }
-    
-    func selectTarget(recognizer: UITapGestureRecognizer) {
-
-        log.debug("")
-
-        gameScene?.fireMissle()
-    }
-    
-    func swipeRightTarget(recognizer: UISwipeGestureRecognizer) {
-
-        log.debug("")
-
-        gameScene?.moveRight()
-    }
-
-    func swipeLeftTarget(recognizer: UISwipeGestureRecognizer) {
-
-        log.debug("")
-
-        gameScene?.moveLeft()
-    }
 
     func gameSceneWithFileNamed(fileNamed: String) -> GameScene? {
 
@@ -72,13 +29,11 @@ class GameViewController: UIViewController, GameSceneDelegate {
             )
             scene.size = size
             scene.scaleMode = .AspectFit
-            scene.gameSceneDelegate = self
+            scene.endSceneDelegate = self
 
             skView.showsFPS = true
             skView.showsNodeCount = true
             skView.ignoresSiblingOrder = true
-
-            configureGameRecognizers()
 
             skView.presentScene(scene)
 
@@ -105,35 +60,23 @@ class GameViewController: UIViewController, GameSceneDelegate {
         // Release any cached data, images, etc that aren't in use.
     }
 
-    // MARK: - GameSceneDelegate methods.
+    // MARK: - EndSceneDelegate methods.
 
-    func selectTapToPlay(recognizer: UITapGestureRecognizer) {
+    func endScene(scene: SKScene) {
 
-        log.debug("")
+        if gameScene == scene, let size = gameScene?.size, skView = view as? SKView {
 
-        if let _ = gameOverScene, gameScene = gameScene, skView = view as? SKView {
-
-            recognizer.view?.removeGestureRecognizer(recognizer)
-            configureGameRecognizers()
-
-            skView.presentScene(gameScene,
-                transition: SKTransition.doorsCloseHorizontalWithDuration(1.0))
-        }
-    }
-    
-    func endGameScene(gameScene: GameScene) {
-
-        removeGameRecognizers()
-
-        if gameScene == self.gameScene, let skView = view as? SKView {
-
-            gameOverScene = GameOverScene(size: gameScene.size)
-
-            let tapRecognizer = UITapGestureRecognizer(target: self, action: "selectTapToPlay:")
-            skView.addGestureRecognizer(tapRecognizer)
+            gameOverScene = GameOverScene(size: size)
+            gameOverScene?.endSceneDelegate = self
 
             skView.presentScene(gameOverScene!,
                 transition: SKTransition.doorsOpenHorizontalWithDuration(1.0))
         }
-    } // endGameScene(_:)
+        else if gameOverScene == scene, let gameScene = gameScene, skView = view as? SKView {
+
+            skView.presentScene(gameScene,
+                transition: SKTransition.doorsCloseHorizontalWithDuration(1.0))
+        }
+
+    } // endScene(_:)
 }

@@ -11,6 +11,8 @@ import SpriteKit
 
 class GameOverScene: SKScene {
 
+    weak var endSceneDelegate: EndSceneDelegate? = nil
+
     // Private GameScene Properties
     
     var contentCreated = false
@@ -21,9 +23,12 @@ class GameOverScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         
-        if (!self.contentCreated) {
-            self.createContent()
-            self.contentCreated = true
+        if (!contentCreated) {
+
+            createContent()
+            configureRecognizers()
+
+            contentCreated = true
         }
     }
     
@@ -48,5 +53,33 @@ class GameOverScene: SKScene {
         // black space color
         self.backgroundColor = SKColor.blackColor()
 
+    }
+
+    var recognizers: [UIGestureRecognizer] = []
+
+    func configureRecognizers() {
+
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "selectTarget:")
+
+        view?.addGestureRecognizer(tapRecognizer)
+
+        recognizers = [tapRecognizer]
+    }
+
+    func removeRecognizers() {
+
+        for recognizer in recognizers {
+
+            recognizer.view?.removeGestureRecognizer(recognizer)
+        }
+        recognizers = []
+    }
+
+    func selectTarget(recognizer: UITapGestureRecognizer) {
+        
+        log.debug("")
+
+        removeRecognizers()
+        endSceneDelegate?.endScene(self)
     }
 }
