@@ -8,8 +8,12 @@
 
 import SpriteKit
 
-enum InvaderType {
+@objc
+protocol GameSceneDelegate: NSObjectProtocol {
 
+    optional func endGameScene(gameScene: GameScene)
+}
+enum InvaderType {
     case A
     case B
     case C
@@ -44,34 +48,49 @@ let kShipFiredBulletCategory: UInt32 = 0x1 << 1
 let kShipCategory: UInt32 = 0x1 << 2
 let kSceneEdgeCategory: UInt32 = 0x1 << 3
 let kInvaderFiredBulletCategory: UInt32 = 0x1 << 4
+let kMinInvaderBottomHeight: CGFloat = 32.0 + kInsetHeight
+let kInsetWidth  = CGFloat(90 / 2)
+let kInsetHeight = CGFloat(60 / 2)
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
+    weak var gameSceneDelegate: GameSceneDelegate? = nil
     var score: Int = 0
     var shipHealth: Float = 1.0
+    var gameRunning: Bool = false
 
     var contentCreated: Bool = false
     var invaderMovementDirection: InvaderMovementDirection = .Right
     var timeOfLastMove: CFTimeInterval = 0.0
     var ship: SKSpriteNode? { return childNodeWithName(kShipName) as? SKSpriteNode }
     var tapQueue: [Int] = []
-    var contactQueue: [SKPhysicsContact] = []
+    var contacts: [SKPhysicsContact] = []
 
     // MARK: - Configure game.
 
+    func loadInvaderTexturesOfType(invaderType: InvaderType) -> [SKTexture] {
+
+        var prefix: String
+
+        switch(invaderType) {
+
+        case .A:
+            prefix = "InvaderA"
+        case .B:
+            prefix = "InvaderB"
+        case .C:
+            prefix = "InvaderC"
+        }
+        return [
+            SKTexture(imageNamed: String(format: "%@_00.png", prefix)),
+            SKTexture(imageNamed: String(format: "%@_01.png", prefix))
+        ]
+    }
+
     func makeInvaderOfType(invaderType: InvaderType) -> SKNode {
 
-        var color: SKColor
-
-        switch invaderType {
-        case .A:
-            color = SKColor.redColor()
-        case .B:
-            color = SKColor.greenColor()
-        case .C:
-            color = SKColor.blueColor()
-        }
-        let invader = SKSpriteNode(color: color, size: kInvaderSize)
+        let textures = self.loadInvaderTexturesOfType(invaderType)
+        let invader = SKSpriteNode(texture: textures[0])
         let physicsBody = SKPhysicsBody(rectangleOfSize: invader.frame.size)
 
         physicsBody.dynamic = false
@@ -81,7 +100,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         invader.physicsBody = physicsBody
         invader.name = kInvaderName
-
+        invader.runAction(
+            SKAction.repeatActionForever(
+                SKAction.animateWithTextures(textures, timePerFrame: kTimePerMove)))
         return invader
     }
 
@@ -125,16 +146,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let ship = makeShip()
         ship.position = CGPoint(
             x: size.width / 2.0,
-            y: kShipSize.height / 2.0
+            y: kShipSize.height / 2.0 + kInsetHeight
         )
         addChild(ship)
     }
 
     func makeShip() -> SKNode {
 
-        let ship = SKSpriteNode(color: SKColor.greenColor(), size: kShipSize)
-        ship.name = kShipName
-
+        let ship = SKSpriteNode(imageNamed: "Ship.png")
         let physicsBody = SKPhysicsBody(rectangleOfSize: ship.frame.size)
 
         physicsBody.dynamic = true
@@ -145,36 +164,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsBody.collisionBitMask = kSceneEdgeCategory
 
         ship.physicsBody = physicsBody
+        ship.name = kShipName
 
         return ship
     }
 
     func setupHud() {
-        // 1
+
         let scoreLabel = SKLabelNode(fontNamed: "Courier")
+
         scoreLabel.name = kScoreHudName
         scoreLabel.fontSize = 25
-
-        // 2
         scoreLabel.fontColor = SKColor.greenColor()
         scoreLabel.text = String(format: "Score: %04u", 0)
-
-        // 3
-//        log.debug("\(size.height)")
-        scoreLabel.position = CGPoint(x: frame.size.width / 2, y: size.height - (40 + scoreLabel.frame.size.height/2))
+        scoreLabel.position = CGPoint(
+            x: frame.size.width / 2,
+            y: size.height - (kInsetHeight + scoreLabel.frame.size.height/2)
+        )
         addChild(scoreLabel)
 
-        // 4
         let healthLabel = SKLabelNode(fontNamed: "Courier")
+
         healthLabel.name = kHealthHudName
         healthLabel.fontSize = 25
-
-        // 5
         healthLabel.fontColor = SKColor.redColor()
         healthLabel.text = String(format: "Health: %.1f%%", shipHealth * 100.0)
-
-        // 6
-        healthLabel.position = CGPoint(x: frame.size.width / 2, y: size.height - (80 + healthLabel.frame.size.height/2))
+        healthLabel.position = CGPoint(
+            x: frame.size.width / 2,
+            y: size.height - (80 + healthLabel.frame.size.height/2)
+        )
         addChild(healthLabel)
     }
 
@@ -215,13 +233,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return bullet
     }
 
+    func startGame() -> Bool {
+
+        setupInvaders()
+        setupShip()
+        resetShipHealth()
+
+        return true
+    }
+
     func createContent() -> Bool {
 
         physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
         physicsBody?.categoryBitMask = kSceneEdgeCategory
 
-        setupInvaders()
-        setupShip()
         setupHud()
 
         return true
@@ -235,8 +260,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             physicsWorld.contactDelegate = self
             contentCreated = createContent()
         }
+        gameRunning = startGame()
     }
-    
+
     // MARK: - Update methods.
 
     func adjustScoreBy(points: Int) {
@@ -249,6 +275,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
 
+    func resetShipHealth() {
+
+        shipHealth = 1.0
+
+        if let label = self.childNodeWithName(kHealthHudName) as? SKLabelNode {
+
+            label.text = String(format: "Health: %.1f%%", shipHealth * 100)
+        }
+    }
+    
     func adjustShipHealthBy(healthAdjustment: Float) {
 
         shipHealth = max(self.shipHealth + healthAdjustment, 0)
@@ -261,10 +297,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     func processContactsForUpdate(currentTime: CFTimeInterval) {
 
-        while let contact = contactQueue.first {
+        while let contact = contacts.first {
 
             handleContact(contact)
-            contactQueue.removeFirst()
+            contacts.removeFirst()
         }
     }
 
@@ -368,6 +404,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(currentTime: CFTimeInterval) {
 
+        guard !isGameOver() else { endGame(); return }
+
         processContactsForUpdate(currentTime)
         processUserTapsForUpdate(currentTime)
         moveInvadersForUpdate(currentTime)
@@ -422,7 +460,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     func didBeginContact(contact: SKPhysicsContact) {
 
-        contactQueue.append(contact)
+        contacts.append(contact)
     }
 
     func handleContact(contact: SKPhysicsContact) {
@@ -463,6 +501,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
             nodeA.removeFromParent()
             nodeB.removeFromParent()
+        }
+    }
+
+    // MARK: - End game methods.
+
+    func isGameOver() -> Bool {
+
+        if let _ = ship, _ = childNodeWithName(kInvaderName) {
+
+            var invaderTooLow = false
+
+            enumerateChildNodesWithName(kInvaderName) { node, stop in
+
+                if CGRectGetMinY(node.frame) <= kMinInvaderBottomHeight {
+
+                    invaderTooLow = true
+                    stop.memory = true
+                }
+            }
+            return invaderTooLow
+        }
+        return true
+    }
+
+    func endGame() {
+
+        if gameRunning {
+
+            gameRunning = false
+
+            while let node = childNodeWithName(kInvaderName) {
+
+                node.removeFromParent()
+            }
+            ship?.removeFromParent()
+
+            gameSceneDelegate?.endGameScene?(self)
         }
     }
 }

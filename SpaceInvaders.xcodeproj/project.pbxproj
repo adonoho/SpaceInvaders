@@ -28,6 +28,7 @@
 		CE6F647F1C0230E6000E7B67 /* Ship.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F646C1C0230E6000E7B67 /* Ship.png */; };
 		CE6F64801C0230E6000E7B67 /* Ship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F646D1C0230E6000E7B67 /* Ship@2x.png */; };
 		CE6F648F1C0232E0000E7B67 /* XCGLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F648B1C0232E0000E7B67 /* XCGLogger.swift */; };
+		CEC6FEE61C03C73F002226AA /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6FEE51C03C73F002226AA /* GameOverScene.swift */; };
 		CED522001C0224F6008E3E3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED521FF1C0224F6008E3E3F /* AppDelegate.swift */; };
 		CED522021C0224F6008E3E3F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CED522011C0224F6008E3E3F /* GameScene.sks */; };
 		CED522041C0224F6008E3E3F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED522031C0224F6008E3E3F /* GameScene.swift */; };
@@ -58,6 +59,7 @@
 		CE6F646C1C0230E6000E7B67 /* Ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship.png; sourceTree = "<group>"; };
 		CE6F646D1C0230E6000E7B67 /* Ship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship@2x.png"; sourceTree = "<group>"; };
 		CE6F648B1C0232E0000E7B67 /* XCGLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCGLogger.swift; sourceTree = "<group>"; };
+		CEC6FEE51C03C73F002226AA /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		CED521FC1C0224F6008E3E3F /* SpaceInvaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceInvaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED521FF1C0224F6008E3E3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED522011C0224F6008E3E3F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				CED521FF1C0224F6008E3E3F /* AppDelegate.swift */,
 				CED522011C0224F6008E3E3F /* GameScene.sks */,
 				CED522031C0224F6008E3E3F /* GameScene.swift */,
+				CEC6FEE51C03C73F002226AA /* GameOverScene.swift */,
 				CED522051C0224F6008E3E3F /* GameViewController.swift */,
 				CED522071C0224F6008E3E3F /* Game.xcassets */,
 				CE6F64581C0230E6000E7B67 /* SIAssets */,
@@ -255,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC6FEE61C03C73F002226AA /* GameOverScene.swift in Sources */,
 				CE6F648F1C0232E0000E7B67 /* XCGLogger.swift in Sources */,
 				CED522041C0224F6008E3E3F /* GameScene.swift in Sources */,
 				CED522061C0224F6008E3E3F /* GameViewController.swift in Sources */,
