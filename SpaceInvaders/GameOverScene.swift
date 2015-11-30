@@ -61,9 +61,12 @@ class GameOverScene: SKScene {
 
         let tapRecognizer = UITapGestureRecognizer(target: self, action: "selectTarget:")
 
-        view?.addGestureRecognizer(tapRecognizer)
-
         recognizers = [tapRecognizer]
+
+        for recognizer in recognizers {
+
+            view?.addGestureRecognizer(recognizer)
+        }
     }
 
     func removeRecognizers() {
