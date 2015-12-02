@@ -318,7 +318,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     func determineInvaderMovementDirection() {
 
-        var proposedMovementDirection: InvaderMovementDirection = invaderMovementDirection
+        var proposedMovementDirection = invaderMovementDirection
 
         enumerateChildNodesWithName(kInvaderName) { node, stop in
 
@@ -386,66 +386,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         fireInvaderBulletsForUpdate(currentTime)
     }
 
-    // MARK: - Configure interactions and handle motion event methods.
-
-    var recognizers: [UIGestureRecognizer] = []
-
-    func configureRecognizers() {
-
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: "selectTarget:")
-
-        let swipeRightRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeRightTarget:")
-        swipeRightRecognizer.direction = .Right
-
-        let swipeLeftRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeLeftTarget:")
-        swipeLeftRecognizer.direction = .Left
-
-        recognizers = [tapRecognizer, swipeRightRecognizer, swipeLeftRecognizer]
-
-        for recognizer in recognizers {
-
-            view?.addGestureRecognizer(recognizer)
-        }
-    }
-
-    func removeRecognizers() {
-
-        for recognizer in recognizers {
-
-            recognizer.view?.removeGestureRecognizer(recognizer)
-        }
-        recognizers = []
-    }
-
-    func swipeRightTarget(recognizer: UISwipeGestureRecognizer) {
-
-        log.debug("")
-
-        moveShipRight()
-    }
+    // MARK: - User interaction methods.
 
     func moveShipRight() {
 
         ship?.physicsBody?.applyForce(CGVectorMake(50.0, 0))
     }
 
-    func swipeLeftTarget(recognizer: UISwipeGestureRecognizer) {
-
-        log.debug("")
-
-        moveShipLeft()
-    }
-
     func moveShipLeft() {
 
         ship?.physicsBody?.applyForce(CGVectorMake(-50.0, 0))
-    }
-
-    func selectTarget(recognizer: UITapGestureRecognizer) {
-
-        log.debug("")
-
-        fireShipBullets()
     }
 
     func fireBullet(bullet: SKNode, toDestination destination:CGPoint, withDuration duration:CFTimeInterval, andSoundFileName soundName: String) {
@@ -562,5 +512,57 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
             endSceneDelegate?.endScene(self)
         }
+    }
+
+    // MARK: - Configure recognizers.
+
+    var recognizers: [UIGestureRecognizer] = []
+
+    func configureRecognizers() {
+
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "selectTarget:")
+
+        let swipeRightRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeRightTarget:")
+        swipeRightRecognizer.direction = .Right
+
+        let swipeLeftRecognizer = UISwipeGestureRecognizer(target: self, action: "swipeLeftTarget:")
+        swipeLeftRecognizer.direction = .Left
+
+        recognizers = [tapRecognizer, swipeRightRecognizer, swipeLeftRecognizer]
+
+        for recognizer in recognizers {
+
+            view?.addGestureRecognizer(recognizer)
+        }
+    }
+
+    func removeRecognizers() {
+
+        for recognizer in recognizers {
+
+            recognizer.view?.removeGestureRecognizer(recognizer)
+        }
+        recognizers = []
+    }
+
+    func swipeRightTarget(recognizer: UISwipeGestureRecognizer) {
+
+        log.debug("")
+
+        moveShipRight()
+    }
+
+    func swipeLeftTarget(recognizer: UISwipeGestureRecognizer) {
+
+        log.debug("")
+
+        moveShipLeft()
+    }
+    
+    func selectTarget(recognizer: UITapGestureRecognizer) {
+        
+        log.debug("")
+        
+        fireShipBullets()
     }
 }
