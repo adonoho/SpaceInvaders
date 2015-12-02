@@ -25,22 +25,21 @@ class GameOverScene: SKScene {
         
         if (!contentCreated) {
 
-            createContent()
             configureRecognizers()
 
-            contentCreated = true
+            contentCreated = createContent()
         }
     }
     
-    func createContent() {
+    func createContent() -> Bool {
 
         let gameOverLabel = SKLabelNode(fontNamed: "Courier")
         gameOverLabel.fontSize = 50
         gameOverLabel.fontColor = SKColor.whiteColor()
         gameOverLabel.text = "Game Over!"
-        gameOverLabel.position = CGPointMake(self.size.width/2, 2.0 / 3.0 * self.size.height);
+        gameOverLabel.position = CGPointMake(size.width/2, 2.0 / 3.0 * size.height);
         
-        self.addChild(gameOverLabel)
+        addChild(gameOverLabel)
         
         let tapLabel = SKLabelNode(fontNamed: "Courier")
         tapLabel.fontSize = 25
@@ -53,6 +52,7 @@ class GameOverScene: SKScene {
         // black space color
         self.backgroundColor = SKColor.blackColor()
 
+        return true
     }
 
     var recognizers: [UIGestureRecognizer] = []
